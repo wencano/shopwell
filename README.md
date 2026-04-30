@@ -21,27 +21,27 @@ flowchart LR
   subgraph Clients
     B[Buyer]
     S[Seller]
-    A[Super admin]
+    A[Admin]
   end
-  subgraph Next["Next.js (App Router)"]
-    MW[Middleware — Supabase session refresh]
-    Pages[Server components & actions]
-    API[Route handlers e.g. Stripe webhook]
+  subgraph App["Next.js app"]
+    MW[Middleware]
+    Pages[Pages]
+    API[Webhooks]
   end
   subgraph External
-    SBAuth[Supabase Auth]
-    PG[(Postgres — Drizzle server role)]
-    Stripe[Stripe Checkout]
+    SBAuth["Supabase Auth"]
+    PG[("Postgres")]
+    Pay[Stripe]
   end
-  B --> Next
-  S --> Next
-  A --> Next
-  Next --> MW
+  B --> App
+  S --> App
+  A --> App
+  App --> MW
   MW --> SBAuth
   Pages --> PG
-  Pages --> Stripe
+  Pages --> Pay
   API --> PG
-  Stripe -->|webhook| API
+  Pay -->|webhook| API
 ```
 
 Protected areas (`/account`, `/seller`, `/admin`) rely on **Supabase Auth** session from middleware; **application data** in `public` is read/written via **Drizzle** on the server so keys and RLS posture stay safe (see `web/README.md`).
@@ -52,21 +52,21 @@ End-to-end payment flow as implemented: server action creates a **pending** orde
 
 ```mermaid
 sequenceDiagram
-  participant Buyer
-  participant Next as Next.js server
-  participant DB as Postgres (Drizzle)
-  participant Stripe as Stripe
+  participant B as Buyer
+  participant A as App
+  participant D as DB
+  participant P as Stripe
 
-  Buyer->>Next: Submit checkout (cart + shipping)
-  Note over Next: createCheckoutSession
-  Next->>DB: Insert address, order (pending_payment), line items
-  Next->>Stripe: checkout.sessions.create (metadata order_id)
-  Stripe-->>Buyer: Redirect to hosted Checkout
-  Buyer->>Stripe: Complete payment
-  Stripe->>Next: POST /api/webhooks/stripe (checkout.session.completed)
-  Next->>Next: Verify signature (STRIPE_WEBHOOK_SECRET)
-  Next->>DB: Update order paid / processing; insert payment row
-  Buyer->>Next: Land on success URL (e.g. /account/orders)
+  B->>A: Submit checkout
+  Note over A: createCheckoutSession
+  A->>D: Insert address order and lines
+  A->>P: Create checkout session
+  P-->>B: Redirect to Checkout
+  B->>P: Complete payment
+  P->>A: Webhook session completed
+  A->>A: Verify webhook signature
+  A->>D: Mark order paid save payment
+  B->>A: Open orders page
 ```
 
 ## Scripts (from `web/`)
