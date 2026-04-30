@@ -1,0 +1,640 @@
+{
+  "version": 1,
+  "description": "Manual ShopWell demo seed (AU wellness, single store). Import into your app/DB when schema exists. Image URLs are hotlink-friendly CDN links — verify licenses before production.",
+  "currency": "AUD",
+  "locale": "en-AU",
+
+  "store": {
+    "id": "11111111-1111-4111-8111-111111111101",
+    "slug": "shopwell-wellbeing",
+    "name": "ShopWell Wellbeing Co.",
+    "tagline": "Australian wellness, thoughtfully sourced.",
+    "description": "Independent Melbourne-founded wellness retailer focused on plant-forward supplements, skincare, and everyday rituals. No therapeutic claims — lifestyle products only.",
+    "logo_url": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=400&q=80",
+    "abn": "12 345 678 901",
+    "email": "hello@shopwell.example",
+    "currency": "AUD"
+  },
+
+  "users": [
+    {
+      "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa1",
+      "email": "super.admin@shopwell.example",
+      "full_name": "Riley Chen",
+      "phone": "+61 3 9000 1101",
+      "role": "super_admin",
+      "avatar_url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=256&q=80"
+    },
+    {
+      "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa2",
+      "email": "jordan.park@shopwell.example",
+      "full_name": "Jordan Park",
+      "phone": "+61 3 9000 1102",
+      "role": "seller",
+      "avatar_url": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80"
+    },
+    {
+      "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+      "email": "alex.murphy@example.com.au",
+      "full_name": "Alex Murphy",
+      "phone": "+61 412 555 0101",
+      "role": "buyer",
+      "avatar_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80"
+    },
+    {
+      "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2",
+      "email": "sam.nguyen@example.com.au",
+      "full_name": "Sam Nguyen",
+      "phone": "+61 423 555 0202",
+      "role": "buyer",
+      "avatar_url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=256&q=80"
+    }
+  ],
+
+  "store_members": [
+    {
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "user_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa2",
+      "member_role": "owner"
+    }
+  ],
+
+  "categories": [
+    {
+      "id": "cccccccc-cccc-4ccc-8ccc-cccccccccc01",
+      "slug": "skincare",
+      "name": "Skincare",
+      "description": "Cleansers, serums, and daily face care."
+    },
+    {
+      "id": "cccccccc-cccc-4ccc-8ccc-cccccccccc02",
+      "slug": "supplements",
+      "name": "Supplements",
+      "description": "Vitamins, minerals, and general wellbeing support products."
+    },
+    {
+      "id": "cccccccc-cccc-4ccc-8ccc-cccccccccc03",
+      "slug": "tea-wellness",
+      "name": "Tea & botanicals",
+      "description": "Herbal infusions and caffeine-conscious blends."
+    },
+    {
+      "id": "cccccccc-cccc-4ccc-8ccc-cccccccccc04",
+      "slug": "body-care",
+      "name": "Body care",
+      "description": "Soaps, oils, and bath rituals."
+    },
+    {
+      "id": "cccccccc-cccc-4ccc-8ccc-cccccccccc05",
+      "slug": "home-scent",
+      "name": "Home & scent",
+      "description": "Candles and ambient scents for calm spaces."
+    }
+  ],
+
+  "products": [
+    {
+      "id": "dddddddd-dddd-4ddd-8ddd-dddddddddd01",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "category_id": "cccccccc-cccc-4ccc-8ccc-cccccccccc01",
+      "slug": "daily-glow-serum",
+      "title": "Daily Glow Face Serum",
+      "description": "Light, fast-absorbing serum for morning and evening routines. Patch test before use.",
+      "price_cents": 5295,
+      "compare_at_cents": 6495,
+      "stock_quantity": 48,
+      "status": "published",
+      "image_url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Skincare serum bottles on marble surface"
+    },
+    {
+      "id": "dddddddd-dddd-4ddd-8ddd-dddddddddd02",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "category_id": "cccccccc-cccc-4ccc-8ccc-cccccccccc01",
+      "slug": "calm-mist-toner",
+      "title": "Calm Mist Toner",
+      "description": "Hydrating facial mist with botanical extracts. For external use only.",
+      "price_cents": 3495,
+      "stock_quantity": 72,
+      "status": "published",
+      "image_url": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Spray toner bottle aesthetic"
+    },
+    {
+      "id": "dddddddd-dddd-4ddd-8ddd-dddddddddd03",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "category_id": "cccccccc-cccc-4ccc-8ccc-cccccccccc02",
+      "slug": "ocean-magnesium-caps",
+      "title": "Ocean-Sourced Magnesium Capsules",
+      "description": "Dietary supplement — always read the label and follow directions. Not a substitute for a balanced diet.",
+      "price_cents": 4295,
+      "stock_quantity": 120,
+      "status": "published",
+      "image_url": "https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Supplement capsules in glass jar"
+    },
+    {
+      "id": "dddddddd-dddd-4ddd-8ddd-dddddddddd04",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "category_id": "cccccccc-cccc-4ccc-8ccc-cccccccccc02",
+      "slug": "vitamin-d3-k2",
+      "title": "Vitamin D3 + K2 Softgels",
+      "description": "Convenience-format softgels. Consult your health professional if pregnant or on medication.",
+      "price_cents": 3895,
+      "stock_quantity": 90,
+      "status": "published",
+      "image_url": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Vitamin bottles on white background"
+    },
+    {
+      "id": "dddddddd-dddd-4ddd-8ddd-dddddddddd05",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "category_id": "cccccccc-cccc-4ccc-8ccc-cccccccccc03",
+      "slug": "rooibos-chai-loose",
+      "title": "Rooibos Chai Loose Leaf",
+      "description": "Caffeine-free spiced blend. Steep 4–5 minutes.",
+      "price_cents": 1895,
+      "stock_quantity": 200,
+      "status": "published",
+      "image_url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Loose leaf tea and cup"
+    },
+    {
+      "id": "dddddddd-dddd-4ddd-8ddd-dddddddddd06",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "category_id": "cccccccc-cccc-4ccc-8ccc-cccccccccc03",
+      "slug": "peppermint-digestive",
+      "title": "Peppermint Digestive Herbal Tea",
+      "description": "Refreshing peppermint leaf blend for everyday sipping.",
+      "price_cents": 1595,
+      "stock_quantity": 160,
+      "status": "published",
+      "image_url": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Herbal tea steeping in glass"
+    },
+    {
+      "id": "dddddddd-dddd-4ddd-8ddd-dddddddddd07",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "category_id": "cccccccc-cccc-4ccc-8ccc-cccccccccc04",
+      "slug": "cold-process-lavender-soap",
+      "title": "Cold Process Lavender Soap Bar",
+      "description": "Small-batch saponified oils with lavender essential oil. Rinse thoroughly.",
+      "price_cents": 1295,
+      "stock_quantity": 85,
+      "status": "published",
+      "image_url": "https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Handmade soap bars stacked"
+    },
+    {
+      "id": "dddddddd-dddd-4ddd-8ddd-dddddddddd08",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "category_id": "cccccccc-cccc-4ccc-8ccc-cccccccccc04",
+      "slug": "jojoba-body-oil",
+      "title": "Australian Jojoba Body Oil",
+      "description": "Lightweight body oil — patch test on sensitive skin.",
+      "price_cents": 4495,
+      "stock_quantity": 55,
+      "status": "published",
+      "image_url": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Body oil dropper bottle"
+    },
+    {
+      "id": "dddddddd-dddd-4ddd-8ddd-dddddddddd09",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "category_id": "cccccccc-cccc-4ccc-8ccc-cccccccccc05",
+      "slug": "clay-ceramic-candle",
+      "title": "Clay Vessel Soy Candle — Coastal",
+      "description": "Soy wax blend with cotton wick. Never leave burning candles unattended.",
+      "price_cents": 5995,
+      "stock_quantity": 40,
+      "status": "published",
+      "image_url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Scented candle lit on table"
+    },
+    {
+      "id": "dddddddd-dddd-4ddd-8ddd-dddddddddd10",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "category_id": "cccccccc-cccc-4ccc-8ccc-cccccccccc02",
+      "slug": "greens-powder",
+      "title": "Daily Greens Powder",
+      "description": "Plant powder mix for smoothies. Contains barley grass; not suitable for coeliacs — see label.",
+      "price_cents": 6795,
+      "stock_quantity": 62,
+      "status": "published",
+      "image_url": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Green superfood powder and spoon"
+    },
+    {
+      "id": "dddddddd-dddd-4ddd-8ddd-dddddddddd11",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "category_id": "cccccccc-cccc-4ccc-8ccc-cccccccccc01",
+      "slug": "bamboo-face-cloths",
+      "title": "Bamboo Face Cloths — Pack of 3",
+      "description": "Reusable face cloths. Machine wash warm.",
+      "price_cents": 2495,
+      "stock_quantity": 100,
+      "status": "published",
+      "image_url": "https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Soft towels and bathroom aesthetic"
+    },
+    {
+      "id": "dddddddd-dddd-4ddd-8ddd-dddddddddd12",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "category_id": "cccccccc-cccc-4ccc-8ccc-cccccccccc04",
+      "slug": "recovery-bath-salts",
+      "title": "Recovery Bath Salts — Epsom & lavender",
+      "description": "Bath additive for relaxation baths. Not for ingestion.",
+      "price_cents": 2295,
+      "stock_quantity": 75,
+      "status": "published",
+      "image_url": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Bath salts and flowers"
+    }
+  ],
+
+  "addresses": [
+    {
+      "id": "eeeeeeee-eeee-4eee-8eee-eeeeeeeeee01",
+      "user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+      "label": "Home",
+      "line1": "42 Fitzroy Street",
+      "line2": "Unit 5",
+      "city": "Melbourne",
+      "state": "VIC",
+      "postcode": "3065",
+      "country": "AU"
+    },
+    {
+      "id": "eeeeeeee-eeee-4eee-8eee-eeeeeeeeee02",
+      "user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+      "label": "Work",
+      "line1": "100 Collins Street",
+      "line2": "Level 12",
+      "city": "Melbourne",
+      "state": "VIC",
+      "postcode": "3000",
+      "country": "AU"
+    },
+    {
+      "id": "eeeeeeee-eeee-4eee-8eee-eeeeeeeeee03",
+      "user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2",
+      "label": "Home",
+      "line1": "18 Ocean Avenue",
+      "line2": "",
+      "city": "Sydney",
+      "state": "NSW",
+      "postcode": "2026",
+      "country": "AU"
+    }
+  ],
+
+  "orders": [
+    {
+      "id": "ffffffff-ffff-4fff-8fff-fffffffffff1",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "buyer_user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+      "shipping_address_id": "eeeeeeee-eeee-4eee-8eee-eeeeeeeeee01",
+      "status": "delivered",
+      "fulfillment_status": "delivered",
+      "payment_status": "paid",
+      "subtotal_cents": 12970,
+      "shipping_cents": 995,
+      "discount_cents": 0,
+      "tax_cents": 0,
+      "total_cents": 13965,
+      "currency": "AUD",
+      "placed_at": "2026-01-14T09:22:00+11:00",
+      "paid_at": "2026-01-14T09:24:11+11:00",
+      "notes_buyer": "Leave at front desk if unavailable.",
+      "stripe_checkout_session_id": "cs_test_shopwell_7xh2demo001"
+    },
+    {
+      "id": "ffffffff-ffff-4fff-8fff-fffffffffff2",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "buyer_user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2",
+      "shipping_address_id": "eeeeeeee-eeee-4eee-8eee-eeeeeeeeee03",
+      "status": "shipped",
+      "fulfillment_status": "in_transit",
+      "payment_status": "paid",
+      "subtotal_cents": 9285,
+      "shipping_cents": 0,
+      "discount_cents": 500,
+      "tax_cents": 0,
+      "total_cents": 8785,
+      "currency": "AUD",
+      "placed_at": "2026-04-18T14:05:00+10:00",
+      "paid_at": "2026-04-18T14:06:02+10:00",
+      "stripe_checkout_session_id": "cs_test_shopwell_7xh2demo002"
+    },
+    {
+      "id": "ffffffff-ffff-4fff-8fff-fffffffffff3",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "buyer_user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+      "shipping_address_id": "eeeeeeee-eeee-4eee-8eee-eeeeeeeeee02",
+      "status": "processing",
+      "fulfillment_status": "unfulfilled",
+      "payment_status": "paid",
+      "subtotal_cents": 5295,
+      "shipping_cents": 995,
+      "discount_cents": 0,
+      "tax_cents": 0,
+      "total_cents": 6290,
+      "currency": "AUD",
+      "placed_at": "2026-04-28T10:18:00+10:00",
+      "paid_at": "2026-04-28T10:19:44+10:00",
+      "stripe_checkout_session_id": "cs_test_shopwell_7xh2demo003"
+    },
+    {
+      "id": "ffffffff-ffff-4fff-8fff-fffffffffff4",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "buyer_user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+      "shipping_address_id": "eeeeeeee-eeee-4eee-8eee-eeeeeeeeee01",
+      "status": "pending_payment",
+      "fulfillment_status": "unfulfilled",
+      "payment_status": "pending",
+      "subtotal_cents": 5995,
+      "shipping_cents": 995,
+      "discount_cents": 0,
+      "tax_cents": 0,
+      "total_cents": 6990,
+      "currency": "AUD",
+      "placed_at": "2026-04-30T08:00:00+10:00",
+      "paid_at": null,
+      "stripe_checkout_session_id": "cs_test_shopwell_7xh2demo004_pending"
+    },
+    {
+      "id": "ffffffff-ffff-4fff-8fff-fffffffffff5",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "buyer_user_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2",
+      "shipping_address_id": "eeeeeeee-eeee-4eee-8eee-eeeeeeeeee03",
+      "status": "cancelled",
+      "fulfillment_status": "cancelled",
+      "payment_status": "failed",
+      "subtotal_cents": 1895,
+      "shipping_cents": 995,
+      "discount_cents": 0,
+      "tax_cents": 0,
+      "total_cents": 2890,
+      "currency": "AUD",
+      "placed_at": "2026-03-02T16:40:00+11:00",
+      "paid_at": null,
+      "cancelled_at": "2026-03-02T16:45:00+11:00",
+      "cancellation_reason": "Payment authentication failed",
+      "stripe_checkout_session_id": null
+    }
+  ],
+
+  "order_items": [
+    {
+      "id": "99999999-9999-4999-8999-999999990001",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff1",
+      "product_id": "dddddddd-dddd-4ddd-8ddd-dddddddddd01",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "title_snapshot": "Daily Glow Face Serum",
+      "quantity": 1,
+      "unit_price_cents": 5295
+    },
+    {
+      "id": "99999999-9999-4999-8999-999999990002",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff1",
+      "product_id": "dddddddd-dddd-4ddd-8ddd-dddddddddd05",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "title_snapshot": "Rooibos Chai Loose Leaf",
+      "quantity": 2,
+      "unit_price_cents": 1895
+    },
+    {
+      "id": "99999999-9999-4999-8999-999999990003",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff1",
+      "product_id": "dddddddd-dddd-4ddd-8ddd-dddddddddd07",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "title_snapshot": "Cold Process Lavender Soap Bar",
+      "quantity": 3,
+      "unit_price_cents": 1295
+    },
+    {
+      "id": "99999999-9999-4999-8999-999999990004",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff2",
+      "product_id": "dddddddd-dddd-4ddd-8ddd-dddddddddd05",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "title_snapshot": "Rooibos Chai Loose Leaf",
+      "quantity": 1,
+      "unit_price_cents": 1895
+    },
+    {
+      "id": "99999999-9999-4999-8999-999999990005",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff2",
+      "product_id": "dddddddd-dddd-4ddd-8ddd-dddddddddd04",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "title_snapshot": "Vitamin D3 + K2 Softgels",
+      "quantity": 1,
+      "unit_price_cents": 3895
+    },
+    {
+      "id": "99999999-9999-4999-8999-999999990006",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff2",
+      "product_id": "dddddddd-dddd-4ddd-8ddd-dddddddddd02",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "title_snapshot": "Calm Mist Toner",
+      "quantity": 1,
+      "unit_price_cents": 3495
+    },
+    {
+      "id": "99999999-9999-4999-8999-999999990007",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff3",
+      "product_id": "dddddddd-dddd-4ddd-8ddd-dddddddddd01",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "title_snapshot": "Daily Glow Face Serum",
+      "quantity": 1,
+      "unit_price_cents": 5295
+    },
+    {
+      "id": "99999999-9999-4999-8999-999999990008",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff4",
+      "product_id": "dddddddd-dddd-4ddd-8ddd-dddddddddd09",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "title_snapshot": "Clay Vessel Soy Candle — Coastal",
+      "quantity": 1,
+      "unit_price_cents": 5995
+    },
+    {
+      "id": "99999999-9999-4999-8999-999999990009",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff5",
+      "product_id": "dddddddd-dddd-4ddd-8ddd-dddddddddd05",
+      "store_id": "11111111-1111-4111-8111-111111111101",
+      "title_snapshot": "Rooibos Chai Loose Leaf",
+      "quantity": 1,
+      "unit_price_cents": 1895
+    }
+  ],
+
+  "payments": [
+    {
+      "id": "77777777-7777-4777-8777-777777770001",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff1",
+      "provider": "stripe",
+      "provider_payment_intent_id": "pi_test_shopwell_3lm8paid001",
+      "provider_charge_id": "ch_test_shopwell_001",
+      "amount_cents": 13965,
+      "currency": "AUD",
+      "status": "succeeded",
+      "created_at": "2026-01-14T09:24:11+11:00",
+      "captured_at": "2026-01-14T09:24:12+11:00"
+    },
+    {
+      "id": "77777777-7777-4777-8777-777777770002",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff2",
+      "provider": "stripe",
+      "provider_payment_intent_id": "pi_test_shopwell_3lm8paid002",
+      "provider_charge_id": "ch_test_shopwell_002",
+      "amount_cents": 8785,
+      "currency": "AUD",
+      "status": "succeeded",
+      "created_at": "2026-04-18T14:06:02+10:00",
+      "captured_at": "2026-04-18T14:06:03+10:00"
+    },
+    {
+      "id": "77777777-7777-4777-8777-777777770003",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff3",
+      "provider": "stripe",
+      "provider_payment_intent_id": "pi_test_shopwell_3lm8paid003",
+      "provider_charge_id": "ch_test_shopwell_003",
+      "amount_cents": 6290,
+      "currency": "AUD",
+      "status": "succeeded",
+      "created_at": "2026-04-28T10:19:44+10:00",
+      "captured_at": "2026-04-28T10:19:45+10:00"
+    },
+    {
+      "id": "77777777-7777-4777-8777-777777770004",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff4",
+      "provider": "stripe",
+      "provider_payment_intent_id": null,
+      "provider_charge_id": null,
+      "amount_cents": 6990,
+      "currency": "AUD",
+      "status": "pending",
+      "created_at": "2026-04-30T08:00:05+10:00",
+      "captured_at": null
+    },
+    {
+      "id": "77777777-7777-4777-8777-777777770005",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff5",
+      "provider": "stripe",
+      "provider_payment_intent_id": "pi_test_shopwell_3lm8fail005",
+      "provider_charge_id": null,
+      "amount_cents": 2890,
+      "currency": "AUD",
+      "status": "failed",
+      "failure_code": "card_declined",
+      "failure_message": "Your card was declined.",
+      "created_at": "2026-03-02T16:40:30+11:00",
+      "captured_at": null
+    }
+  ],
+
+  "invoices": [
+    {
+      "id": "66666666-6666-4666-8666-666666660001",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff1",
+      "invoice_number": "SHW-2026-010014",
+      "status": "paid",
+      "subtotal_cents": 12970,
+      "shipping_cents": 995,
+      "tax_cents": 0,
+      "total_cents": 13965,
+      "currency": "AUD",
+      "issued_at": "2026-01-14T09:24:30+11:00",
+      "due_at": "2026-01-14T09:24:30+11:00",
+      "paid_at": "2026-01-14T09:24:30+11:00",
+      "pdf_url": null
+    },
+    {
+      "id": "66666666-6666-4666-8666-666666660002",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff2",
+      "invoice_number": "SHW-2026-041802",
+      "status": "paid",
+      "subtotal_cents": 9285,
+      "shipping_cents": 0,
+      "tax_cents": 0,
+      "total_cents": 8785,
+      "currency": "AUD",
+      "issued_at": "2026-04-18T14:06:15+10:00",
+      "due_at": "2026-04-18T14:06:15+10:00",
+      "paid_at": "2026-04-18T14:06:15+10:00",
+      "pdf_url": null
+    },
+    {
+      "id": "66666666-6666-4666-8666-666666660003",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff3",
+      "invoice_number": "SHW-2026-042803",
+      "status": "paid",
+      "subtotal_cents": 5295,
+      "shipping_cents": 995,
+      "tax_cents": 0,
+      "total_cents": 6290,
+      "currency": "AUD",
+      "issued_at": "2026-04-28T10:20:00+10:00",
+      "due_at": "2026-05-05T23:59:59+10:00",
+      "paid_at": "2026-04-28T10:20:00+10:00",
+      "pdf_url": null
+    },
+    {
+      "id": "66666666-6666-4666-8666-666666660004",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff4",
+      "invoice_number": "SHW-2026-043004",
+      "status": "open",
+      "subtotal_cents": 5995,
+      "shipping_cents": 995,
+      "tax_cents": 0,
+      "total_cents": 6990,
+      "currency": "AUD",
+      "issued_at": "2026-04-30T08:00:20+10:00",
+      "due_at": "2026-05-07T23:59:59+10:00",
+      "paid_at": null,
+      "pdf_url": null
+    }
+  ],
+
+  "shipments": [
+    {
+      "id": "55555555-5555-4555-8555-555555550001",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff1",
+      "carrier": "Australia Post",
+      "service_level": "Parcel Post",
+      "tracking_number": "3LAAU1234567890",
+      "tracking_url": "https://auspost.com.au/mypost/track/#/details/3LAAU1234567890",
+      "status": "delivered",
+      "shipped_at": "2026-01-15T11:00:00+11:00",
+      "delivered_at": "2026-01-17T14:22:00+11:00",
+      "last_event_at": "2026-01-17T14:22:00+11:00",
+      "last_event_detail": "Delivered — signed by recipient"
+    },
+    {
+      "id": "55555555-5555-4555-8555-555555550002",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff2",
+      "carrier": "Australia Post",
+      "service_level": "Express Post",
+      "tracking_number": "3LBBU9988776655",
+      "tracking_url": "https://auspost.com.au/mypost/track/#/details/3LBBU9988776655",
+      "status": "in_transit",
+      "shipped_at": "2026-04-19T09:15:00+10:00",
+      "delivered_at": null,
+      "last_event_at": "2026-04-29T07:10:00+10:00",
+      "last_event_detail": "In transit — Sydney NSW"
+    },
+    {
+      "id": "55555555-5555-4555-8555-555555550003",
+      "order_id": "ffffffff-ffff-4fff-8fff-fffffffffff3",
+      "carrier": "Australia Post",
+      "service_level": "Parcel Post",
+      "tracking_number": null,
+      "tracking_url": null,
+      "status": "pending",
+      "shipped_at": null,
+      "delivered_at": null,
+      "last_event_at": "2026-04-28T10:25:00+10:00",
+      "last_event_detail": "Packing — label not yet created"
+    }
+  ]
+}
