@@ -30,8 +30,6 @@ export const metadata: Metadata = {
   description: "ShopWell — curated wellness products for Australia.",
 };
 
-export const dynamic = "force-dynamic";
-
 export default function RootLayout({
   children,
 }: Readonly<{

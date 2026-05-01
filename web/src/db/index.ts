@@ -12,7 +12,17 @@ function getDb(): Database {
     if (!connectionString) {
       throw new Error("DATABASE_URL is not set");
     }
-    const client = postgres(connectionString, { prepare: false, max: 10 });
+    /** Vercel serverless: keep pool small; use Supabase pooler URI (port 6543, `?pgbouncer=true`) in prod. */
+    const max = Math.min(
+      10,
+      Math.max(1, Number.parseInt(process.env.DATABASE_POOL_MAX ?? "4", 10) || 4),
+    );
+    const client = postgres(connectionString, {
+      prepare: false,
+      max,
+      connect_timeout: 15,
+      idle_timeout: 20,
+    });
     _db = drizzle(client, { schema });
   }
   return _db;

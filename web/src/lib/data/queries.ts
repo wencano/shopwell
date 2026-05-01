@@ -1,5 +1,6 @@
 import "server-only";
 
+import { unstable_cache } from "next/cache";
 import { db } from "@/db";
 import {
   categories,
@@ -25,7 +26,7 @@ export type ProductCard = {
   categoryName: string | null;
 };
 
-export async function listPublishedProducts(): Promise<ProductCard[]> {
+async function listPublishedProductsUncached(): Promise<ProductCard[]> {
   const rows = await db
     .select({
       product: products,
@@ -55,7 +56,15 @@ export async function listPublishedProducts(): Promise<ProductCard[]> {
   return [...byId.values()];
 }
 
-export async function getProductBySlug(slug: string) {
+/** Cached for Vercel: shared across requests; invalidate via tag revalidate if you add admin product mutations. */
+export async function listPublishedProducts(): Promise<ProductCard[]> {
+  return unstable_cache(listPublishedProductsUncached, ["list-published-products"], {
+    revalidate: 60,
+    tags: ["storefront-products"],
+  })();
+}
+
+async function getProductBySlugUncached(slug: string) {
   const [row] = await db
     .select()
     .from(products)
@@ -84,13 +93,38 @@ export async function getProductBySlug(slug: string) {
   return { product: row, images: imgs, category, store: store ?? null };
 }
 
-export async function getStorefrontStore() {
+export async function getProductBySlug(slug: string) {
+  if (!slug) return null;
+  return unstable_cache(
+    async () => getProductBySlugUncached(slug),
+    ["product-by-slug", slug],
+    { revalidate: 60, tags: ["storefront-products"] },
+  )();
+}
+
+async function getStorefrontStoreUncached() {
   const [row] = await db.select().from(stores).limit(1);
   return row ?? null;
 }
 
+export async function getStorefrontStore() {
+  return unstable_cache(getStorefrontStoreUncached, ["storefront-store"], {
+    revalidate: 300,
+    tags: ["storefront-store"],
+  })();
+}
+
 export async function getUserRoles(userId: string) {
   return db.select().from(userRoles).where(eq(userRoles.userId, userId));
+}
+
+/** Cached nav chrome only — do not use for authz in admin/seller layouts. */
+export async function getUserRolesForHeader(userId: string) {
+  return unstable_cache(
+    async () => db.select().from(userRoles).where(eq(userRoles.userId, userId)),
+    ["user-roles-header", userId],
+    { revalidate: 120 },
+  )();
 }
 
 export async function getProfile(userId: string) {

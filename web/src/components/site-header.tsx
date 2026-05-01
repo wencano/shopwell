@@ -3,14 +3,14 @@ import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
 import { HeaderCart } from "@/components/header-cart";
-import { getUserRoles } from "@/lib/data/queries";
+import { getUserRolesForHeader } from "@/lib/data/queries";
 
 export async function SiteHeader() {
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  const roles = user ? await getUserRoles(user.id) : [];
+  const roles = user ? await getUserRolesForHeader(user.id) : [];
   const isAdmin = roles.some((r) => r.role === "super_admin");
   const isSeller = roles.some(
     (r) => r.role === "seller" || r.role === "super_admin",

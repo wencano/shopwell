@@ -9,6 +9,26 @@
    Then lock the **Data API** to your app server (see **Security** below):
    - `web/drizzle/0001_enable_rls_public_tables.sql`
 4. Set environment variables (see `.env.example`).
+
+### Vercel performance (Postgres)
+
+Use Supabase **connection pooling** for `DATABASE_URL` in production (Dashboard → **Connect** → **Transaction pooler**, URI on port **6543**). Append `?pgbouncer=true` if the host is the pooler. Direct connections (5432) from many serverless invocations exhaust Postgres and add latency.
+
+Optional: `DATABASE_POOL_MAX` (default `4`) caps connections per warm lambda.
+
+### Rate limiting (Vercel / abuse)
+
+Middleware enforces **per-IP** limits using **Upstash Redis** (works across all Edge instances; in-memory in middleware would not).
+
+Set in Vercel project env (create a database at [upstash.com](https://upstash.com) → REST API):
+
+- `UPSTASH_REDIS_REST_URL`
+- `UPSTASH_REDIS_REST_TOKEN`
+
+If either is missing, limiting is **skipped** (useful locally). Default: **200 requests / minute / IP** (sliding window). Override with `RATE_LIMIT_PER_MINUTE`.
+
+Static assets in `/_next/static` and images are excluded by the middleware matcher and do not count.
+
 5. From `web/`:
 
 ```bash
